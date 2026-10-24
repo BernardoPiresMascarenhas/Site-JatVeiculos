@@ -1,0 +1,430 @@
+@import "tailwindcss";
+
+/* Tema claro global (data-theme no <html>), inclusive dentro das ilhas escuras. */
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+
+/*
+ * JAT — sistema visual
+ * Preto carbono predominante, cinzas neutros e branco gelo. O amarelo do
+ * logotipo oficial é a única cor de destaque: ações principais, indicadores
+ * ativos e poucos detalhes. O vermelho existe apenas como cor funcional de erro.
+ *
+ * Tokens espelhados em src/config/theme.ts (meta theme-color, etc.).
+ *
+ * Temas: os valores abaixo são o tema escuro (padrão). O tema claro só
+ * redefine as variáveis em :root[data-theme="light"]. Os nomes são papéis,
+ * não cores fixas: "carbon" é o fundo, "ice" o texto principal, "white" a base
+ * dos véus e bordas translúcidas (white/10 vira preto/10 no claro).
+ * Seções cinematográficas (hero, fotos com texto por cima, cabeçalho, rodapé)
+ * usam data-theme="dark" no próprio elemento e ficam escuras nos dois temas.
+ */
+@theme {
+  --color-carbon: #0b0d10;
+  --color-ink: #0f1012;
+  --color-graphite: #17181b;
+  --color-steel: #24262a;
+  --color-smoke: #3a3d43;
+  --color-fog: #9a9da4;
+  --color-mist: #c9cbcf;
+  --color-ice: #f5f5f5;
+  --color-paper: #e6e6e1;
+
+  /* Marca: amarelo do logotipo oficial */
+  --color-brand: #fdbf01;
+  /* Hover e estados pressionados */
+  --color-brand-deep: #e0a800;
+  /* Dourado escuro para texto/ícones sobre fundos claros (contraste ≥ 4.5:1) */
+  --color-brand-ink: #7d5c00;
+
+  /* Destaque em texto e ícones sobre o fundo do tema (no claro, o amarelo
+     não tem contraste para texto e vira um dourado escuro) */
+  --color-accent: #fdbf01;
+  /* Texto sobre o amarelo: sempre escuro, nos dois temas */
+  --color-on-brand: #0b0d10;
+  /* Véu de modais e gavetas */
+  --color-scrim: #0b0d10;
+
+  /* Funcional: somente erros, validação e alertas */
+  --color-danger: #f0352c;
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --breakpoint-3xl: 112rem;
+}
+
+/* Tema escuro explícito: ilhas escuras dentro do tema claro. */
+[data-theme="dark"] {
+  --color-carbon: #0b0d10;
+  --color-ink: #0f1012;
+  --color-graphite: #17181b;
+  --color-steel: #24262a;
+  --color-smoke: #3a3d43;
+  --color-fog: #9a9da4;
+  --color-mist: #c9cbcf;
+  --color-ice: #f5f5f5;
+  --color-white: #fff;
+  --color-brand-ink: #7d5c00;
+  --color-accent: #fdbf01;
+  --color-scrim: #0b0d10;
+  --color-danger: #f0352c;
+  --surface-shadow: none;
+  --texture-light: rgb(255 255 255 / 0.018);
+  --texture-dark: rgb(0 0 0 / 0.25);
+  --btn-light-hover: #fff;
+  color: var(--color-ice);
+  color-scheme: dark;
+}
+
+/*
+ * Tema claro: branco gelo, cards brancos, texto carbono, cinzas quentes.
+ * Contrastes sobre #f5f5f2: ice 16.7, mist 11.1, fog 5.9, accent 4.64 (AA).
+ */
+:root[data-theme="light"] {
+  --color-carbon: #f5f5f2;
+  --color-ink: #ffffff;
+  --color-graphite: #ffffff;
+  --color-steel: #dcdcd6;
+  --color-smoke: #8f9196;
+  --color-fog: #5c5f66;
+  --color-mist: #33363b;
+  --color-ice: #151515;
+  --color-white: #151515;
+  /* Destaque sobre superfícies invertidas (escuras) do tema claro */
+  --color-brand-ink: #fdbf01;
+  --color-accent: #996300;
+  --color-scrim: rgb(21 21 21 / 0.55);
+  --color-danger: #c4271f;
+  --surface-shadow: 0 0 0 1px rgb(21 21 21 / 0.07), 0 1px 2px rgb(21 21 21 / 0.04), 0 12px 32px -18px rgb(21 21 21 / 0.18);
+  --texture-light: rgb(21 21 21 / 0.022);
+  --texture-dark: transparent;
+  --btn-light-hover: #000;
+  --grain-opacity: 0.035;
+  color-scheme: light;
+}
+
+/* Troca de tema instantânea: nada de transições de cor em cascata. */
+[data-theme-switching] *,
+[data-theme-switching] *::before,
+[data-theme-switching] *::after {
+  transition: none !important;
+}
+
+@layer base {
+  :root {
+    --surface-shadow: none;
+    --texture-light: rgb(255 255 255 / 0.018);
+    --texture-dark: rgb(0 0 0 / 0.25);
+    --btn-light-hover: #fff;
+    --grain-opacity: 0.05;
+    color-scheme: dark;
+  }
+
+  html {
+    background: var(--color-carbon);
+    color: var(--color-ice);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--color-carbon);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "tnum" 0;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--color-brand);
+    color: var(--color-on-brand);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  select,
+  input {
+    font: inherit;
+  }
+
+  dialog::backdrop {
+    /* Fixo: o lightbox é escuro nos dois temas */
+    background: rgb(11 13 16 / 0.94);
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 92rem;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 3.5rem);
+  }
+
+  /* Títulos expandidos, pesados, em caixa alta */
+  .display {
+    font-family: var(--font-sans);
+    font-stretch: 125%;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+    line-height: 0.88;
+  }
+
+  .headline {
+    font-stretch: 112%;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .spec-value {
+    font-stretch: 110%;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 3.25rem;
+    padding: 0 1.6rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    font-stretch: 112%;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition:
+      background-color 0.35s var(--ease-out-expo),
+      color 0.35s var(--ease-out-expo),
+      border-color 0.35s var(--ease-out-expo),
+      transform 0.35s var(--ease-out-expo);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* Fundo amarelo sempre com texto escuro */
+  .btn-primary {
+    background: var(--color-brand);
+    color: var(--color-on-brand);
+  }
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--color-brand-deep);
+    transform: translateX(-101%);
+    transition: transform 0.5s var(--ease-out-expo);
+  }
+  .btn-primary:hover::after {
+    transform: translateX(0);
+  }
+
+  .btn-ghost {
+    border: 1px solid color-mix(in srgb, var(--color-ice) 28%, transparent);
+    color: var(--color-ice);
+  }
+  .btn-ghost:hover {
+    border-color: var(--color-ice);
+    background: color-mix(in srgb, var(--color-ice) 6%, transparent);
+  }
+
+  .btn-light {
+    background: var(--color-ice);
+    color: var(--color-carbon);
+  }
+  .btn-light:hover {
+    background: var(--btn-light-hover);
+  }
+
+  .btn-dark-outline {
+    border: 1px solid color-mix(in srgb, var(--color-carbon) 25%, transparent);
+    color: var(--color-carbon);
+  }
+  .btn-dark-outline:hover {
+    border-color: var(--color-carbon);
+  }
+
+  .btn .btn-arrow {
+    transition: transform 0.45s var(--ease-out-expo);
+  }
+  .btn:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Linha de link com sublinhado animado */
+  .link-line {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.45s var(--ease-out-expo);
+  }
+  .link-line:hover,
+  .link-line:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  /* Campo de formulário escuro */
+  .field {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0 0.9rem;
+    background: var(--color-graphite);
+    border: 1px solid var(--color-steel);
+    color: var(--color-ice);
+    border-radius: 0;
+    transition: border-color 0.25s;
+    appearance: none;
+  }
+  .field::placeholder {
+    color: var(--color-smoke);
+  }
+  .field[readonly] {
+    color: var(--color-accent);
+    cursor: default;
+  }
+  .field:hover {
+    border-color: var(--color-smoke);
+  }
+  .field:focus-visible {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+  select.field {
+    padding-right: 2.25rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%239a9da4' stroke-width='1.5'%3E%3Cpath d='m2 4 4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    cursor: pointer;
+  }
+  select.field option {
+    background: var(--color-graphite);
+  }
+  textarea.field {
+    padding: 0.8rem 0.9rem;
+    min-height: 8rem;
+    resize: vertical;
+  }
+
+  /* Textura de carbono sutil */
+  .carbon-texture {
+    background-color: var(--color-ink);
+    background-image:
+      repeating-linear-gradient(45deg, var(--texture-light) 0 2px, transparent 2px 4px),
+      repeating-linear-gradient(-45deg, var(--texture-dark) 0 2px, transparent 2px 4px);
+  }
+
+  /* Cards e painéis: sem sombra no escuro; contorno e sombra sutis no claro */
+  .surface {
+    box-shadow: var(--surface-shadow);
+  }
+
+  /* Contorno de texto para numerais gigantes */
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px color-mix(in srgb, var(--color-ice) 18%, transparent);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Granulação fotográfica sobre toda a página */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Faixa contínua das avaliações: a lista é duplicada, então -50% fecha o loop. */
+@keyframes reviews-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.reviews-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+}
+
+.reviews-marquee-track {
+  display: flex;
+  align-items: flex-start;
+  width: max-content;
+  animation: reviews-marquee var(--marquee-duration, 80s) linear infinite;
+}
+
+.reviews-marquee:hover .reviews-marquee-track,
+.reviews-marquee:has(:focus-visible) .reviews-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-marquee {
+    overflow-x: auto;
+    mask-image: none;
+  }
+  .reviews-marquee-track {
+    animation: none !important;
+  }
+  .reviews-marquee-track [data-clone] {
+    display: none;
+  }
+}
+
+.scroll-cue-line {
+  animation: scroll-cue 2.2s var(--ease-in-out-quart) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

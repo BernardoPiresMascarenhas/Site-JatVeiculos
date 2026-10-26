@@ -291,6 +291,7 @@ export function InventoryExplorer() {
                 </button>
               </div>
             </motion.div>
+            <span aria-hidden className="grain-layer" />
           </div>
         )}
       </AnimatePresence>

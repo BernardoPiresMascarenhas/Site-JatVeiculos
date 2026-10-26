@@ -125,6 +125,7 @@ export function Navbar() {
             </div>
           </nav>
         </div>
+        <span aria-hidden className="grain-layer" />
       </motion.header>
 
       <AnimatePresence>

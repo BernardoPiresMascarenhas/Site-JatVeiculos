@@ -358,15 +358,31 @@
   }
 }
 
-/* Granulação fotográfica sobre toda a página */
-.grain::after {
+/*
+ * Granulação fotográfica sobre toda a página. Fica abaixo do cabeçalho (z-50): o Safari do
+ * iOS 26 pinta a área da barra de status com a cor do elemento fixo que encontra no topo, e um
+ * pseudo-elemento conta como o próprio <body>, que não é fixo — com a granulação por cima, o
+ * cabeçalho nunca era encontrado e o conteúdo rolado aparecia atrás do relógio. As camadas acima
+ * dela recebem a mesma textura com .grain-layer.
+ */
+.grain::after,
+.grain-layer {
   content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 60;
   pointer-events: none;
   opacity: var(--grain-opacity);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.grain::after {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+}
+
+/* Elemento comum, não fixo: o Safari sobe dele até o fixo que o contém. */
+.grain-layer {
+  position: absolute;
+  inset: 0;
 }
 
 @keyframes scroll-cue {

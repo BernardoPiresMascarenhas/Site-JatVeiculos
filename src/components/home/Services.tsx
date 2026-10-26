@@ -18,7 +18,7 @@ export function Services({ index = "04" }: { index?: string }) {
 
         <ul className="mt-16 border-t border-carbon/15 md:mt-24">
           {services.map((s, i) => (
-            <li key={s.id} id={s.id} className="scroll-mt-24 border-b border-carbon/15">
+            <li key={s.id} id={s.id} className="scroll-mt-[calc(6rem+env(safe-area-inset-top))] border-b border-carbon/15">
               <Reveal delay={i * 0.05} y={20}>
                 <a
                   href={whatsappLink(s.whatsappText)}

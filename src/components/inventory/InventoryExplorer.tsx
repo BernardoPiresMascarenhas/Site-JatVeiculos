@@ -88,7 +88,7 @@ export function InventoryExplorer() {
     <div className="shell grid gap-10 pb-28 lg:grid-cols-12 lg:gap-12">
       {/* Filtros — desktop */}
       <aside aria-label="Filtros" className="hidden lg:col-span-3 lg:block">
-        <div className="sticky top-24 max-h-[calc(100dvh-7rem)] overflow-y-auto pr-3 pb-6 [scrollbar-color:var(--color-smoke)_transparent] [scrollbar-width:thin]">
+        <div className="sticky top-[calc(6rem+env(safe-area-inset-top))] max-h-[calc(100dvh-7rem-env(safe-area-inset-top))] overflow-y-auto pr-3 pb-6 [scrollbar-color:var(--color-smoke)_transparent] [scrollbar-width:thin]">
           <FilterControls filters={filters} onChange={update} onReset={reset} />
         </div>
       </aside>
@@ -285,7 +285,7 @@ export function InventoryExplorer() {
               <div className="overflow-y-auto px-5 pt-5 pb-4">
                 <FilterControls filters={filters} onChange={update} onReset={reset} />
               </div>
-              <div className="border-t border-white/10 p-4">
+              <div className="border-t border-white/10 p-4 pb-[calc(1rem+env(safe-area-inset-bottom))]">
                 <button type="button" onClick={() => setDrawerOpen(false)} className="btn btn-primary w-full">
                   Ver {results.length} {results.length === 1 ? "veículo" : "veículos"}
                 </button>

@@ -108,7 +108,7 @@ export default async function VehiclePage({ params }: PageProps<"/estoque/[slug]
         </div>
 
         <aside aria-label="Contato" className="lg:col-span-4 lg:col-start-9 lg:row-span-2 lg:row-start-1">
-          <div className="lg:sticky lg:top-24">
+          <div className="lg:sticky lg:top-[calc(6rem+env(safe-area-inset-top))]">
             <VehicleContactCard vehicle={v} />
           </div>
         </aside>
@@ -176,7 +176,7 @@ export default async function VehiclePage({ params }: PageProps<"/estoque/[slug]
       </section>
 
       {/* Barra fixa no mobile */}
-      <div className="fixed inset-x-0 bottom-0 z-30 flex items-center justify-between gap-4 border-t border-white/10 bg-carbon/95 px-4 py-3 backdrop-blur-md lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-30 flex items-center justify-between gap-4 border-t border-white/10 bg-carbon/95 px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur-md lg:hidden">
         <div className="min-w-0">
           <p className="truncate text-xs text-fog">
             {vehicleName(v)}

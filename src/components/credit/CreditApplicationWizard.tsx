@@ -138,7 +138,7 @@ export function CreditApplicationWizard() {
   const current = steps[step];
 
   return (
-    <div ref={top} className="scroll-mt-24">
+    <div ref={top} className="scroll-mt-[calc(6rem+env(safe-area-inset-top))]">
       {/* Aviso de protótipo */}
       <div className="flex flex-col gap-4 border border-white/15 bg-white/[0.03] p-5 md:flex-row md:items-center md:justify-between md:p-6">
         <div className="flex gap-3">
@@ -163,7 +163,7 @@ export function CreditApplicationWizard() {
       <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-14">
         {/* Etapas */}
         <aside className="lg:col-span-4">
-          <div className="lg:sticky lg:top-24">
+          <div className="lg:sticky lg:top-[calc(6rem+env(safe-area-inset-top))]">
             <div className="mb-3 flex items-baseline justify-between lg:hidden">
               <p className="eyebrow text-fog">
                 {step < REVIEW ? `Etapa ${step + 1} de ${steps.length}` : "Revisão"}

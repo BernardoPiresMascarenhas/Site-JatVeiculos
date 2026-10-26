@@ -36,7 +36,7 @@ export function QuickSearch() {
   };
 
   return (
-    <section id="busca" aria-labelledby="busca-title" className="carbon-texture relative scroll-mt-16 border-y border-white/[0.06]">
+    <section id="busca" aria-labelledby="busca-title" className="carbon-texture relative scroll-mt-[calc(4rem+env(safe-area-inset-top))] border-y border-white/[0.06]">
       <div className="shell py-12 md:py-16">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <h2 id="busca-title" className="headline text-2xl uppercase md:text-3xl">

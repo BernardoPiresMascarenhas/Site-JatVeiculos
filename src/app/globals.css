@@ -165,7 +165,9 @@
     width: 100%;
     max-width: 92rem;
     margin-inline: auto;
-    padding-inline: clamp(1rem, 4vw, 3.5rem);
+    /* Em paisagem, o recorte da tela (notch / Dynamic Island) invade as laterais. */
+    padding-left: max(clamp(1rem, 4vw, 3.5rem), env(safe-area-inset-left));
+    padding-right: max(clamp(1rem, 4vw, 3.5rem), env(safe-area-inset-right));
   }
 
   /* Títulos expandidos, pesados, em caixa alta */

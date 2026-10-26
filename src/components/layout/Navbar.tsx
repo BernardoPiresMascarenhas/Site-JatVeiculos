@@ -49,12 +49,18 @@ export function Navbar() {
         data-theme="dark"
         className="fixed inset-x-0 top-0 z-50"
       >
+        {/*
+          Fundo opaco: o Safari do iOS 26 estende a cor do cabeçalho fixo para trás da barra de
+          status, mas só quando ela é sólida; translúcida, o conteúdo rolado aparece ali.
+          O padding cobre a safe area quando o navegador a entrega à página (viewport-fit=cover);
+          o ::before a mantém carbono mesmo enquanto a faixa é transparente sobre o hero.
+        */}
         <div
-          className={`border-b transition-[background-color,border-color,backdrop-filter] duration-500 ${
+          className={`relative border-b pt-[env(safe-area-inset-top)] transition-[background-color,border-color] duration-500 before:absolute before:inset-x-0 before:top-0 before:h-[env(safe-area-inset-top)] before:bg-carbon ${
             scrolled || open
-              ? "border-white/[0.07] bg-carbon/85 backdrop-blur-md light:bg-carbon/[0.97]"
+              ? "border-white/[0.07] bg-carbon"
               : // No tema claro a faixa fica sólida desde o topo, já que as páginas abrem em fundo claro.
-                "border-transparent bg-transparent light:border-white/[0.07] light:bg-carbon/[0.97] light:backdrop-blur-md"
+                "border-transparent bg-transparent light:border-white/[0.07] light:bg-carbon"
           }`}
         >
           <nav
@@ -133,7 +139,7 @@ export function Navbar() {
             exit={{ clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
             data-theme="dark"
-            className="fixed inset-0 z-40 flex flex-col bg-carbon pt-24 md:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-carbon pt-[calc(6rem+env(safe-area-inset-top))] pb-[env(safe-area-inset-bottom)] md:hidden"
           >
             <ul className="shell flex flex-1 flex-col justify-center gap-2">
               {navigation.map((item, i) => (

@@ -42,8 +42,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  // O cabeçalho é carbono nos dois temas, então a cor da barra do navegador é fixa.
   themeColor: palette.carbon,
   colorScheme: "dark",
+  // Libera a área sob a barra de status; o cabeçalho a preenche via env(safe-area-inset-*).
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -68,7 +71,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </a>
         <MotionProvider>
           <Navbar />
-          <main id="conteudo">{children}</main>
+          {/* Compensa a faixa de safe area que o cabeçalho fixo acrescenta (0 fora do iOS). */}
+          <main id="conteudo" className="pt-[env(safe-area-inset-top)]">{children}</main>
           <Footer />
         </MotionProvider>
       </body>

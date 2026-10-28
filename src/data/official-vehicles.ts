@@ -37,10 +37,10 @@ function photoSet(
 
 const x1Photos = photoSet("BMW - X1 SDRIVE 20i M Sport 2.0 TB Aut. - 2026", [
   { file: "bmwx1_Principal.jpg", label: "Em frente à loja", alt: "BMW X1 preto estacionado em frente à fachada da JAT Veículos", focus: "40% 62%" },
-  { file: "bmwx1_0.jpg", label: "Dianteira", alt: "BMW X1 preto, vista dianteira em três quartos", focus: "45% 60%" },
+  { file: "bmwx1_0.jpg", label: "Dianteira em ângulo", alt: "BMW X1 preto, vista dianteira em três quartos", focus: "45% 60%" },
   { file: "bmwx1_1.jpg", label: "Frente", alt: "BMW X1 preto, vista frontal com a grade e os faróis" },
   { file: "bmwx1_2.jpg", label: "Lateral", alt: "BMW X1 preto, vista lateral" },
-  { file: "bmwx1_3.jpg", label: "Traseira", alt: "BMW X1 preto, vista traseira em três quartos" },
+  { file: "bmwx1_3.jpg", label: "Traseira em ângulo", alt: "BMW X1 preto, vista traseira em três quartos" },
   { file: "bmwx1_4.jpg", label: "Traseira", alt: "BMW X1 preto, vista traseira" },
   { file: "bmwx1_5.jpg", label: "Painel", alt: "Painel do BMW X1 com interior em couro marrom" },
   { file: "bmwx1_6.jpg", label: "Posto de condução", alt: "Volante e painel digital do BMW X1" },
@@ -59,10 +59,10 @@ const x1Photos = photoSet("BMW - X1 SDRIVE 20i M Sport 2.0 TB Aut. - 2026", [
 
 const corollaPhotos = photoSet("Toyota - Corolla ALTIS A.Premiu. 2.0 Flex 16V Aut - 2024", [
   { file: "corola_Principal.jpg", label: "Em frente à loja", alt: "Toyota Corolla preto estacionado em frente à fachada da JAT Veículos", focus: "40% 62%" },
-  { file: "corola_0.jpg", label: "Dianteira", alt: "Toyota Corolla preto, vista dianteira em três quartos", focus: "45% 60%" },
+  { file: "corola_0.jpg", label: "Dianteira em ângulo", alt: "Toyota Corolla preto, vista dianteira em três quartos", focus: "45% 60%" },
   { file: "corola_1.jpg", label: "Frente", alt: "Toyota Corolla preto, vista frontal com faróis de LED" },
   { file: "corola_2.jpg", label: "Lateral", alt: "Toyota Corolla preto, vista lateral" },
-  { file: "corola_3.jpg", label: "Traseira", alt: "Toyota Corolla preto, vista traseira em três quartos" },
+  { file: "corola_3.jpg", label: "Traseira em ângulo", alt: "Toyota Corolla preto, vista traseira em três quartos" },
   { file: "corola_4.jpg", label: "Traseira", alt: "Toyota Corolla preto, vista traseira" },
   { file: "corola_5.jpg", label: "Posto de condução", alt: "Volante e painel do Toyota Corolla com acabamento claro" },
   { file: "corola_6.jpg", label: "Painel", alt: "Painel e central multimídia do Toyota Corolla" },
@@ -80,10 +80,10 @@ const corollaPhotos = photoSet("Toyota - Corolla ALTIS A.Premiu. 2.0 Flex 16V Au
 
 const compassPhotos = photoSet("Jeep - Compass S T270 1.3 TB 4x2 Flex Aut. - 2024", [
   { file: "compas_Principal.jpg", label: "Em frente à loja", alt: "Jeep Compass branco estacionado em frente à fachada da JAT Veículos", focus: "40% 62%" },
-  { file: "compas_0.jpg", label: "Dianteira", alt: "Jeep Compass branco, vista dianteira em três quartos", focus: "45% 60%" },
+  { file: "compas_0.jpg", label: "Dianteira em ângulo", alt: "Jeep Compass branco, vista dianteira em três quartos", focus: "45% 60%" },
   { file: "compas_1.jpg", label: "Frente", alt: "Jeep Compass branco, vista frontal com a grade de sete fendas" },
   { file: "compas_2.jpg", label: "Lateral", alt: "Jeep Compass branco com teto preto, vista lateral" },
-  { file: "compas_3.jpg", label: "Traseira", alt: "Jeep Compass branco, vista traseira em três quartos" },
+  { file: "compas_3.jpg", label: "Traseira em ângulo", alt: "Jeep Compass branco, vista traseira em três quartos" },
   { file: "compas_4.jpg", label: "Traseira", alt: "Jeep Compass branco, vista traseira" },
   { file: "compas_5.jpg", label: "Posto de condução", alt: "Volante e painel do Jeep Compass com interior preto" },
   { file: "compas_6.jpg", label: "Painel", alt: "Painel e central multimídia do Jeep Compass" },
@@ -101,10 +101,10 @@ const compassPhotos = photoSet("Jeep - Compass S T270 1.3 TB 4x2 Flex Aut. - 202
 
 const sw4Photos = photoSet("Toyota - Hilux SW4 SRX Plat. 4x4 2.8 TB Die. Aut. - 2024", [
   { file: "sw4_Principal.jpg", label: "Em frente à loja", alt: "Toyota Hilux SW4 preta estacionada em frente à fachada da JAT Veículos", focus: "40% 62%" },
-  { file: "sw4_0.jpg", label: "Dianteira", alt: "Toyota Hilux SW4 preta, vista dianteira em três quartos", focus: "45% 60%" },
+  { file: "sw4_0.jpg", label: "Dianteira em ângulo", alt: "Toyota Hilux SW4 preta, vista dianteira em três quartos", focus: "45% 60%" },
   { file: "sw4_1.jpg", label: "Frente", alt: "Toyota Hilux SW4 preta, vista frontal com faróis de LED" },
   { file: "sw4_2.jpg", label: "Lateral", alt: "Toyota Hilux SW4 preta, vista lateral" },
-  { file: "sw4_3.jpg", label: "Traseira", alt: "Toyota Hilux SW4 preta, vista traseira em três quartos" },
+  { file: "sw4_3.jpg", label: "Traseira em ângulo", alt: "Toyota Hilux SW4 preta, vista traseira em três quartos" },
   { file: "sw4_4.jpg", label: "Traseira", alt: "Toyota Hilux SW4 preta, vista traseira" },
   { file: "sw4_5.jpg", label: "Posto de condução", alt: "Volante e painel da Toyota Hilux SW4 com interior preto" },
   { file: "sw4_6.jpg", label: "Painel", alt: "Painel e central multimídia da Toyota Hilux SW4" },
@@ -122,10 +122,10 @@ const sw4Photos = photoSet("Toyota - Hilux SW4 SRX Plat. 4x4 2.8 TB Die. Aut. - 
 
 const ramPhotos = photoSet("Ram - Classic LARAMIE NIGHT ED. 5.7 4X4 Aut. - 2023", [
   { file: "ram_Principal.jpg", label: "Em frente à loja", alt: "Ram Classic cinza estacionada em frente à fachada da JAT Veículos", focus: "40% 62%" },
-  { file: "ram_0.jpg", label: "Dianteira", alt: "Ram Classic cinza, vista dianteira em três quartos", focus: "45% 60%" },
+  { file: "ram_0.jpg", label: "Dianteira em ângulo", alt: "Ram Classic cinza, vista dianteira em três quartos", focus: "45% 60%" },
   { file: "ram_1.jpg", label: "Frente", alt: "Ram Classic cinza, vista frontal com a grade escurecida" },
   { file: "ram_2.jpg", label: "Lateral", alt: "Ram Classic cinza, vista lateral da cabine dupla" },
-  { file: "ram_3.jpg", label: "Traseira", alt: "Ram Classic cinza, vista traseira em três quartos com capota marítima" },
+  { file: "ram_3.jpg", label: "Traseira em ângulo", alt: "Ram Classic cinza, vista traseira em três quartos com capota marítima" },
   { file: "ram_4.jpg", label: "Posto de condução", alt: "Volante e painel da Ram Classic" },
   { file: "ram_5.jpg", label: "Painel", alt: "Painel e central multimídia da Ram Classic" },
   { file: "ram_6.jpg", label: "Bancos dianteiros", alt: "Bancos dianteiros em couro preto da Ram Classic" },
@@ -142,10 +142,10 @@ const ramPhotos = photoSet("Ram - Classic LARAMIE NIGHT ED. 5.7 4X4 Aut. - 2023"
 
 const cybertruckPhotos = photoSet("Tesla - CYBERTRUCK 122,4 KW ELETRICO AWD - 2024", [
   { file: "tesla_Principal.jpg", label: "Em frente à loja", alt: "Tesla Cybertruck em aço inox estacionado em frente à fachada da JAT Veículos", focus: "40% 62%" },
-  { file: "tesla_0.jpg", label: "Dianteira", alt: "Tesla Cybertruck, vista dianteira em três quartos", focus: "45% 60%" },
+  { file: "tesla_0.jpg", label: "Dianteira em ângulo", alt: "Tesla Cybertruck, vista dianteira em três quartos", focus: "45% 60%" },
   { file: "tesla_1.jpg", label: "Frente", alt: "Tesla Cybertruck, vista frontal com a barra de luz contínua" },
   { file: "tesla_2.jpg", label: "Lateral", alt: "Tesla Cybertruck, vista lateral" },
-  { file: "tesla_3.jpg", label: "Traseira", alt: "Tesla Cybertruck, vista traseira em três quartos" },
+  { file: "tesla_3.jpg", label: "Traseira em ângulo", alt: "Tesla Cybertruck, vista traseira em três quartos" },
   { file: "tesla_4.jpg", label: "Traseira", alt: "Tesla Cybertruck, vista traseira" },
   { file: "tesla_5.jpg", label: "Posto de condução", alt: "Volante e painel do Tesla Cybertruck" },
   { file: "tesla_6.jpg", label: "Painel", alt: "Painel e tela central do Tesla Cybertruck" },
@@ -162,10 +162,10 @@ const cybertruckPhotos = photoSet("Tesla - CYBERTRUCK 122,4 KW ELETRICO AWD - 20
 
 const fz25Photos = photoSet("Yamaha - FZ25 250 FAZER CONNECTED - 2025", [
   { file: "yamaha_Principal.jpg", label: "Em frente à loja", alt: "Yamaha FZ25 Fazer branca estacionada em frente à fachada da JAT Veículos", focus: "58% 78%" },
-  { file: "yamaha_0.jpg", label: "Dianteira", alt: "Yamaha FZ25 Fazer branca, vista dianteira em três quartos" },
+  { file: "yamaha_0.jpg", label: "Dianteira em ângulo", alt: "Yamaha FZ25 Fazer branca, vista dianteira em três quartos" },
   { file: "yamaha_1.jpg", label: "Frente", alt: "Yamaha FZ25 Fazer branca, vista frontal" },
   { file: "yamaha_2.jpg", label: "Lateral", alt: "Yamaha FZ25 Fazer branca com rodas douradas, vista lateral", width: 1536, height: 1024 },
-  { file: "yamaha_3.jpg", label: "Traseira", alt: "Yamaha FZ25 Fazer branca, vista traseira em três quartos", width: 1536, height: 1024 },
+  { file: "yamaha_3.jpg", label: "Traseira em ângulo", alt: "Yamaha FZ25 Fazer branca, vista traseira em três quartos", width: 1536, height: 1024 },
   { file: "yamaha_4.jpg", label: "Carenagem", alt: "Carenagem e farol da Yamaha FZ25 Fazer" },
   { file: "yamaha_5.jpg", label: "Tanque", alt: "Tanque e guidão da Yamaha FZ25 Fazer" },
   { file: "yamaha_6.jpg", label: "Painel", alt: "Painel digital da Yamaha FZ25 Fazer" },
@@ -176,10 +176,10 @@ const fz25Photos = photoSet("Yamaha - FZ25 250 FAZER CONNECTED - 2025", [
 
 const civicPhotos = photoSet("Honda - Civic Sedan EXL 2.0 Flex 16V Aut.4p - 2019", [
   { file: "civic_Principal.jpg", label: "Em frente à loja", alt: "Honda Civic branco estacionado em frente à fachada da JAT Veículos", focus: "40% 62%" },
-  { file: "civic_0.jpg", label: "Dianteira", alt: "Honda Civic branco, vista dianteira em três quartos", focus: "45% 60%" },
+  { file: "civic_0.jpg", label: "Dianteira em ângulo", alt: "Honda Civic branco, vista dianteira em três quartos", focus: "45% 60%" },
   { file: "civic_1.jpg", label: "Frente", alt: "Honda Civic branco, vista frontal" },
   { file: "civic_2.jpg", label: "Lateral", alt: "Honda Civic branco, vista lateral" },
-  { file: "civic_3.jpg", label: "Traseira", alt: "Honda Civic branco, vista traseira em três quartos" },
+  { file: "civic_3.jpg", label: "Traseira em ângulo", alt: "Honda Civic branco, vista traseira em três quartos" },
   { file: "civic_4.jpg", label: "Traseira", alt: "Honda Civic branco, vista traseira" },
   { file: "civic_5.jpg", label: "Painel", alt: "Painel e central multimídia do Honda Civic" },
   { file: "civic_6.jpg", label: "Posto de condução", alt: "Volante e painel do Honda Civic com interior preto" },
@@ -195,10 +195,10 @@ const civicPhotos = photoSet("Honda - Civic Sedan EXL 2.0 Flex 16V Aut.4p - 2019
 
 const renegadePhotos = photoSet("Jeep - Renegade Limited 1.8 4x2 Flex 16V Aut. - 2021", [
   { file: "jeep_Principal.jpg", label: "Em frente à loja", alt: "Jeep Renegade branco estacionado em frente à fachada da JAT Veículos", focus: "40% 62%" },
-  { file: "jeep_0.jpg", label: "Dianteira", alt: "Jeep Renegade branco, vista dianteira em três quartos", focus: "45% 60%" },
+  { file: "jeep_0.jpg", label: "Dianteira em ângulo", alt: "Jeep Renegade branco, vista dianteira em três quartos", focus: "45% 60%" },
   { file: "jeep_1.jpg", label: "Frente", alt: "Jeep Renegade branco, vista frontal com faróis redondos" },
   { file: "jeep_2.jpg", label: "Lateral", alt: "Jeep Renegade branco com teto preto, vista lateral" },
-  { file: "jeep_3.jpg", label: "Traseira", alt: "Jeep Renegade branco, vista traseira em três quartos" },
+  { file: "jeep_3.jpg", label: "Traseira em ângulo", alt: "Jeep Renegade branco, vista traseira em três quartos" },
   { file: "jeep_4.jpg", label: "Traseira", alt: "Jeep Renegade branco, vista traseira" },
   { file: "jeep_5.jpg", label: "Posto de condução", alt: "Volante e painel do Jeep Renegade com interior preto" },
   { file: "jeep_6.jpg", label: "Painel", alt: "Painel e central multimídia do Jeep Renegade" },
@@ -216,10 +216,10 @@ const renegadePhotos = photoSet("Jeep - Renegade Limited 1.8 4x2 Flex 16V Aut. -
 
 const defenderPhotos = photoSet("Land Rover - Defender 90 D300 HSE Diesel Aut.( Hibr.) - 2023", [
   { file: "defender_Principal.jpg", label: "Em frente à loja", alt: "Land Rover Defender 90 dourado estacionado em frente à fachada da JAT Veículos", focus: "40% 62%" },
-  { file: "defender_0.jpg", label: "Dianteira", alt: "Land Rover Defender 90 dourado, vista dianteira em três quartos", focus: "45% 60%" },
+  { file: "defender_0.jpg", label: "Dianteira em ângulo", alt: "Land Rover Defender 90 dourado, vista dianteira em três quartos", focus: "45% 60%" },
   { file: "defender_1.jpg", label: "Frente", alt: "Land Rover Defender 90 dourado, vista frontal" },
   { file: "defender_2.jpg", label: "Lateral", alt: "Land Rover Defender 90 dourado, vista lateral" },
-  { file: "defender_3.jpg", label: "Traseira", alt: "Land Rover Defender 90 dourado, vista traseira em três quartos com estepe na tampa" },
+  { file: "defender_3.jpg", label: "Traseira em ângulo", alt: "Land Rover Defender 90 dourado, vista traseira em três quartos com estepe na tampa" },
   { file: "defender_4.jpg", label: "Traseira", alt: "Land Rover Defender 90 dourado, vista traseira" },
   { file: "defender_5.jpg", label: "Posto de condução", alt: "Volante e painel do Land Rover Defender com interior caramelo" },
   { file: "defender_6.jpg", label: "Painel", alt: "Painel e central multimídia do Land Rover Defender" },
@@ -237,10 +237,10 @@ const defenderPhotos = photoSet("Land Rover - Defender 90 D300 HSE Diesel Aut.( 
 
 const bmw320Photos = photoSet("BMW - 320ia 2.0 TB M Sport A.Flex M.Sport 4p - 2025", [
   { file: "bmw320i_Principal.jpg", label: "Em frente à loja", alt: "BMW 320i cinza estacionado em frente à fachada da JAT Veículos", focus: "40% 62%" },
-  { file: "bmw320i_0.jpg", label: "Dianteira", alt: "BMW 320i cinza, vista dianteira em três quartos", focus: "45% 60%" },
+  { file: "bmw320i_0.jpg", label: "Dianteira em ângulo", alt: "BMW 320i cinza, vista dianteira em três quartos", focus: "45% 60%" },
   { file: "bmw320i_1.jpg", label: "Frente", alt: "BMW 320i cinza, vista frontal com a grade e os faróis de LED" },
   { file: "bmw320i_2.jpg", label: "Lateral", alt: "BMW 320i cinza, vista lateral" },
-  { file: "bmw320i_3.jpg", label: "Traseira", alt: "BMW 320i cinza, vista traseira em três quartos" },
+  { file: "bmw320i_3.jpg", label: "Traseira em ângulo", alt: "BMW 320i cinza, vista traseira em três quartos" },
   { file: "bmw320i_4.jpg", label: "Traseira", alt: "BMW 320i cinza, vista traseira" },
   { file: "bmw320i_5.jpg", label: "Painel", alt: "Painel com tela curva do BMW 320i e interior em couro marrom" },
   { file: "bmw320i_6.jpg", label: "Posto de condução", alt: "Volante M e painel digital do BMW 320i" },
@@ -260,10 +260,10 @@ const bmw320Photos = photoSet("BMW - 320ia 2.0 TB M Sport A.Flex M.Sport 4p - 20
 
 const m3Photos = photoSet("BMW - M3 M3 Competition M 3.0 Bi-TB 510cv - 2023", [
   { file: "bmwm3_Principal.jpg", label: "Em frente à loja", alt: "BMW M3 Competition preto estacionado em frente à fachada da JAT Veículos", focus: "40% 62%" },
-  { file: "bmwm3_0.jpg", label: "Dianteira", alt: "BMW M3 Competition preto, vista dianteira em três quartos", focus: "45% 60%" },
+  { file: "bmwm3_0.jpg", label: "Dianteira em ângulo", alt: "BMW M3 Competition preto, vista dianteira em três quartos", focus: "45% 60%" },
   { file: "bmwm3_1.jpg", label: "Frente", alt: "BMW M3 Competition preto, vista frontal com a grade vertical" },
   { file: "bmwm3_2.jpg", label: "Lateral", alt: "BMW M3 Competition preto, vista lateral" },
-  { file: "bmwm3_3.jpg", label: "Traseira", alt: "BMW M3 Competition preto, vista traseira em três quartos" },
+  { file: "bmwm3_3.jpg", label: "Traseira em ângulo", alt: "BMW M3 Competition preto, vista traseira em três quartos" },
   { file: "bmwm3_4.jpg", label: "Traseira", alt: "BMW M3 Competition preto, vista traseira com quatro saídas de escapamento" },
   { file: "bmwm3_5.jpg", label: "Posto de condução", alt: "Volante M e painel digital do BMW M3 Competition" },
   { file: "bmwm3_6.jpg", label: "Painel", alt: "Painel com tela curva do BMW M3 Competition e interior em couro laranja" },
@@ -281,10 +281,10 @@ const m3Photos = photoSet("BMW - M3 M3 Competition M 3.0 Bi-TB 510cv - 2023", [
 
 const gt3Photos = photoSet("Porsche - 911 GT3 - 2026", [
   { file: "porsche_Principal.jpg", label: "Em frente à loja", alt: "Porsche 911 GT3 preto com rodas douradas estacionado em frente à fachada da JAT Veículos", focus: "40% 62%" },
-  { file: "porsche_0.jpg", label: "Dianteira", alt: "Porsche 911 GT3 preto, vista dianteira em três quartos", focus: "45% 60%" },
+  { file: "porsche_0.jpg", label: "Dianteira em ângulo", alt: "Porsche 911 GT3 preto, vista dianteira em três quartos", focus: "45% 60%" },
   { file: "porsche_1.jpg", label: "Frente", alt: "Porsche 911 GT3 preto, vista frontal" },
   { file: "porsche_2.jpg", label: "Lateral", alt: "Porsche 911 GT3 preto com rodas douradas, vista lateral" },
-  { file: "porsche_3.jpg", label: "Traseira", alt: "Porsche 911 GT3 preto, vista traseira em três quartos com aerofólio" },
+  { file: "porsche_3.jpg", label: "Traseira em ângulo", alt: "Porsche 911 GT3 preto, vista traseira em três quartos com aerofólio" },
   { file: "porsche_4.jpg", label: "Traseira", alt: "Porsche 911 GT3 preto, vista traseira" },
   { file: "porsche_5.jpg", label: "Posto de condução", alt: "Volante e painel do Porsche 911 GT3 com acabamento em Alcantara" },
   { file: "porsche_6.jpg", label: "Bancos concha", alt: "Bancos concha em fibra de carbono com cintos vermelhos do Porsche 911 GT3" },
@@ -308,12 +308,12 @@ const gt3Photos = photoSet("Porsche - 911 GT3 - 2026", [
 const photo43 = (file: string, label: string, alt: string, focus = "50% 78%") => ({ file, label, alt, focus, width: 1440, height: 1080 });
 
 const fpacePhotos = photoSet("Jaguar - F-Pace SVR Supercharged 5.0 V8 - 2023", [
-  photo43("jaguar_Principal.jpg", "No showroom", "Jaguar F-Pace SVR preto fosco em showroom", "45% 78%"),
-  photo43("jaguar_0.jpg", "Dianteira", "Jaguar F-Pace SVR, vista dianteira em três quartos"),
+  photo43("jaguar_Principal.jpg", "Vista geral", "Jaguar F-Pace SVR preto fosco em showroom", "45% 78%"),
+  photo43("jaguar_0.jpg", "Dianteira em ângulo", "Jaguar F-Pace SVR, vista dianteira em três quartos"),
   photo43("jaguar_1.jpg", "Frente", "Jaguar F-Pace SVR, vista frontal"),
   photo43("jaguar_2.jpg", "Lateral", "Jaguar F-Pace SVR, vista lateral"),
-  photo43("jaguar_3.jpg", "Traseira", "Jaguar F-Pace SVR, vista traseira em três quartos"),
-  photo43("jaguar_4.jpg", "Traseira", "Jaguar F-Pace SVR, vista traseira em três quartos pelo outro lado"),
+  photo43("jaguar_3.jpg", "Traseira em ângulo", "Jaguar F-Pace SVR, vista traseira em três quartos"),
+  photo43("jaguar_4.jpg", "Traseira em ângulo", "Jaguar F-Pace SVR, vista traseira em três quartos pelo outro lado"),
   photo43("jaguar_5.jpg", "Traseira", "Jaguar F-Pace SVR, vista traseira com quatro saídas de escapamento"),
   photo43("jaguar_6.jpg", "Interior", "Interior do Jaguar F-Pace SVR em couro Tan, vista pela porta do motorista"),
   photo43("jaguar_7.jpg", "Posto de condução", "Volante e painel digital do Jaguar F-Pace SVR"),
@@ -330,13 +330,13 @@ const fpacePhotos = photoSet("Jaguar - F-Pace SVR Supercharged 5.0 V8 - 2023", [
 ]);
 
 const corvettePhotos = photoSet("Chevrolet - Corvette 5.7  6.0, 6.2 Conv. Stingray - 2026", [
-  photo43("corvert_Principal.jpg", "No showroom", "Chevrolet Corvette Stingray conversível vermelho em showroom", "50% 78%"),
-  photo43("corvert_0.jpg", "Dianteira", "Chevrolet Corvette Stingray vermelho, vista dianteira em três quartos"),
+  photo43("corvert_Principal.jpg", "Vista geral", "Chevrolet Corvette Stingray conversível vermelho em showroom", "50% 78%"),
+  photo43("corvert_0.jpg", "Dianteira em ângulo", "Chevrolet Corvette Stingray vermelho, vista dianteira em três quartos"),
   photo43("corvert_1.jpg", "Frente", "Chevrolet Corvette Stingray vermelho, vista frontal"),
   photo43("corvert_2.jpg", "Lateral", "Chevrolet Corvette Stingray vermelho, vista lateral"),
-  photo43("corvert_3.jpg", "Lateral", "Chevrolet Corvette Stingray vermelho com as portas abertas"),
-  photo43("corvert_4.jpg", "Traseira", "Chevrolet Corvette Stingray vermelho, vista traseira em três quartos"),
-  photo43("corvert_5.jpg", "Traseira", "Chevrolet Corvette Stingray vermelho, vista traseira em três quartos pelo outro lado"),
+  photo43("corvert_3.jpg", "Lateral", "Chevrolet Corvette Stingray vermelho, vista lateral com a cobertura traseira da capota erguida"),
+  photo43("corvert_4.jpg", "Traseira em ângulo", "Chevrolet Corvette Stingray vermelho, vista traseira em três quartos"),
+  photo43("corvert_5.jpg", "Traseira em ângulo", "Chevrolet Corvette Stingray vermelho, vista traseira em três quartos pelo outro lado"),
   photo43("corvert_6.jpg", "Traseira", "Chevrolet Corvette Stingray vermelho, vista traseira com quatro saídas de escapamento"),
   photo43("corvert_7.jpg", "Interior", "Interior vermelho e preto do Chevrolet Corvette Stingray"),
   photo43("corvert_8.jpg", "Painel", "Volante e painel do Chevrolet Corvette Stingray"),
@@ -352,12 +352,12 @@ const corvettePhotos = photoSet("Chevrolet - Corvette 5.7  6.0, 6.2 Conv. Stingr
 ]);
 
 const cayman718Photos = photoSet("Porsche - 718 Cayman GT4 RS 4.0 500cv - 2023", [
-  photo43("porsche718_Principal.jpg", "No showroom", "Porsche 718 Cayman GT4 RS prata em showroom", "50% 78%"),
-  photo43("porsche718_0.jpg", "Dianteira", "Porsche 718 Cayman GT4 RS prata com capô em fibra de carbono, vista dianteira"),
+  photo43("porsche718_Principal.jpg", "Vista geral", "Porsche 718 Cayman GT4 RS prata em showroom", "50% 78%"),
+  photo43("porsche718_0.jpg", "Dianteira em ângulo", "Porsche 718 Cayman GT4 RS prata com capô em fibra de carbono, vista dianteira"),
   photo43("porsche718_1.jpg", "Lateral", "Porsche 718 Cayman GT4 RS prata, vista lateral"),
   photo43("porsche718_2.jpg", "Lateral", "Porsche 718 Cayman GT4 RS prata, vista lateral pelo outro lado"),
-  photo43("porsche718_3.jpg", "Traseira", "Porsche 718 Cayman GT4 RS prata, vista traseira em três quartos com aerofólio"),
-  photo43("porsche718_4.jpg", "Traseira", "Porsche 718 Cayman GT4 RS prata, vista traseira em três quartos pelo outro lado"),
+  photo43("porsche718_3.jpg", "Traseira em ângulo", "Porsche 718 Cayman GT4 RS prata, vista traseira em três quartos com aerofólio"),
+  photo43("porsche718_4.jpg", "Traseira em ângulo", "Porsche 718 Cayman GT4 RS prata, vista traseira em três quartos pelo outro lado"),
   photo43("porsche718_5.jpg", "Traseira", "Porsche 718 Cayman GT4 RS prata, vista traseira"),
   photo43("porsche718_6.jpg", "Posto de condução", "Volante em Alcantara e painel do Porsche 718 Cayman GT4 RS"),
   photo43("porsche718_7.jpg", "Interior", "Interior em Alcantara preta do Porsche 718 Cayman GT4 RS"),
@@ -374,12 +374,12 @@ const cayman718Photos = photoSet("Porsche - 718 Cayman GT4 RS 4.0 500cv - 2023",
 ]);
 
 const m4csPhotos = photoSet("BMW - M4 CS Coupe 3.0 Bi-Turbo 2p - 2025", [
-  photo43("bmwm4_Principal.jpg", "No showroom", "BMW M4 CS preto em showroom", "45% 78%"),
-  photo43("bmwm4_0.jpg", "Dianteira", "BMW M4 CS preto, vista dianteira em três quartos"),
-  photo43("bmwm4_1.jpg", "Traseira", "BMW M4 CS preto, vista traseira em três quartos"),
+  photo43("bmwm4_Principal.jpg", "Vista geral", "BMW M4 CS preto em showroom", "45% 78%"),
+  photo43("bmwm4_0.jpg", "Dianteira em ângulo", "BMW M4 CS preto, vista dianteira em três quartos"),
+  photo43("bmwm4_1.jpg", "Traseira em ângulo", "BMW M4 CS preto, vista traseira em três quartos"),
   photo43("bmwm4_2.jpg", "Frente", "BMW M4 CS preto, vista frontal com a grade de contorno vermelho"),
   photo43("bmwm4_3.jpg", "Lateral", "BMW M4 CS preto, vista lateral"),
-  photo43("bmwm4_4.jpg", "Traseira", "BMW M4 CS preto, vista traseira em três quartos pelo outro lado"),
+  photo43("bmwm4_4.jpg", "Traseira em ângulo", "BMW M4 CS preto, vista traseira em três quartos pelo outro lado"),
   photo43("bmwm4_5.jpg", "Traseira", "BMW M4 CS preto, vista traseira com quatro saídas de escapamento"),
   photo43("bmwm4_6.jpg", "Detalhe traseiro", "Detalhe da tampa traseira e lanterna do BMW M4 CS"),
   photo43("bmwm4_7.jpg", "Lanterna", "Lanterna traseira acesa do BMW M4 CS"),
@@ -397,11 +397,11 @@ const m4csPhotos = photoSet("BMW - M4 CS Coupe 3.0 Bi-Turbo 2p - 2025", [
 ]);
 
 const x6Photos = photoSet("BMW - X6 XDRIVE 40i M Sport 3.0 Bi-TB (Hib.) - 2024", [
-  photo43("bmwx6_Principal.jpg", "No showroom", "BMW X6 cinza em showroom", "48% 78%"),
+  photo43("bmwx6_Principal.jpg", "Vista geral", "BMW X6 cinza em showroom", "48% 78%"),
   photo43("bmwx6_0.jpg", "Frente", "BMW X6 cinza, vista frontal com a grade iluminada"),
-  photo43("bmwx6_1.jpg", "Dianteira", "BMW X6 cinza, vista dianteira em três quartos"),
+  photo43("bmwx6_1.jpg", "Dianteira em ângulo", "BMW X6 cinza, vista dianteira em três quartos"),
   photo43("bmwx6_2.jpg", "Lateral", "BMW X6 cinza, vista lateral"),
-  photo43("bmwx6_3.jpg", "Traseira", "BMW X6 cinza, vista traseira em três quartos"),
+  photo43("bmwx6_3.jpg", "Traseira em ângulo", "BMW X6 cinza, vista traseira em três quartos"),
   photo43("bmwx6_4.jpg", "Traseira", "BMW X6 cinza, vista traseira"),
   photo43("bmwx6_5.jpg", "Interior", "Interior em couro Café do BMW X6, vista pela porta do motorista"),
   photo43("bmwx6_6.jpg", "Painel", "Painel com tela curva do BMW X6"),

@@ -1,4 +1,4 @@
-import { ArrowLeft, Check, MessageCircle } from "lucide-react";
+import { ArrowLeft, Check } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -6,6 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
 import { VehicleContactCard } from "@/components/vehicles/VehicleContactCard";
 import { VehicleGallery } from "@/components/vehicles/VehicleGallery";
+import { VehicleMobileBar } from "@/components/vehicles/VehicleMobileBar";
 import { getVehicle, relatedVehicles, vehicleName, vehicles } from "@/data/vehicles";
 import { formatKm, formatNumber, formatPrice, formatYear } from "@/lib/format";
 import { vehicleWhatsappText, whatsappLink } from "@/lib/whatsapp";
@@ -71,10 +72,11 @@ export default async function VehiclePage({ params }: PageProps<"/estoque/[slug]
           <div className="mt-5 flex flex-col gap-4 md:mt-7 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
             <div className="min-w-0">
               <p className="eyebrow text-accent">{v.brand}</p>
-              <h1 className="display mt-3 text-[clamp(2.6rem,6vw,5.5rem)]">{v.model}</h1>
+              <h1 className="display mt-3 text-[clamp(2.2rem,9vw,5.5rem)] [overflow-wrap:anywhere] lg:text-[clamp(2.6rem,6vw,5.5rem)]">{v.model}</h1>
               <p className="headline mt-3 text-lg text-mist uppercase md:text-xl">{v.version}</p>
             </div>
-            <div className="shrink-0 lg:pb-1 lg:text-right">
+            {/* No desktop, o preço fica em destaque no card comercial ao lado da galeria. */}
+            <div className="shrink-0 lg:hidden">
               <p className="eyebrow text-fog">
                 {v.source.kind === "demo" ? "Valor de referência · demonstrativo" : "Preço anunciado"}
               </p>
@@ -85,14 +87,15 @@ export default async function VehiclePage({ params }: PageProps<"/estoque/[slug]
       </header>
 
       {/*
-        Desktop: galeria + resumo à esquerda, contato fixo à direita.
+        Desktop: galeria + resumo à esquerda, card comercial (preço, contato e
+        formulário de interesse) à direita.
         Mobile: galeria → resumo → contato → detalhes (ordem do DOM).
       */}
-      <div className="shell mt-6 grid gap-y-10 md:mt-8 lg:grid-cols-12 lg:gap-x-10">
+      <div className="shell mt-6 grid gap-y-14 md:mt-8 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-x-12 lg:gap-y-16">
         <div className="min-w-0 lg:col-span-8 lg:row-start-1">
           <VehicleGallery vehicle={v} />
 
-          <section aria-label="Resumo" className="mt-6">
+          <section aria-label="Resumo" className="mt-8">
             <dl className="grid grid-cols-2 gap-px border border-white/10 bg-white/10 sm:grid-cols-4">
               {keySpecs.map((s) => (
                 <div key={s.label} className="bg-carbon px-4 py-4 md:px-5 md:py-5">
@@ -107,10 +110,9 @@ export default async function VehiclePage({ params }: PageProps<"/estoque/[slug]
           </section>
         </div>
 
+        {/* Sem posição fixa: com o formulário, o card passa da altura da tela. */}
         <aside aria-label="Contato" className="lg:col-span-4 lg:col-start-9 lg:row-span-2 lg:row-start-1">
-          <div className="lg:sticky lg:top-[calc(6rem+env(safe-area-inset-top))]">
-            <VehicleContactCard vehicle={v} />
-          </div>
+          <VehicleContactCard vehicle={v} />
         </aside>
 
         <div className="min-w-0 lg:col-span-8 lg:row-start-2">
@@ -122,7 +124,7 @@ export default async function VehiclePage({ params }: PageProps<"/estoque/[slug]
             <p className="headline mt-4 text-[clamp(1.25rem,2vw,1.7rem)] leading-snug">{v.description}</p>
           </Reveal>
 
-          <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-8">
+          <div className="mt-12 grid gap-12 md:grid-cols-2 md:gap-8">
             <Reveal>
               <h2 className="eyebrow text-fog">Itens de destaque</h2>
               <ul className="mt-4 grid gap-2">
@@ -167,7 +169,7 @@ export default async function VehiclePage({ params }: PageProps<"/estoque/[slug]
             {related.map((r, i) => (
               <li key={r.slug}>
                 <Reveal delay={i * 0.08} className="h-full">
-                  <VehicleCard vehicle={r} />
+                  <VehicleCard vehicle={r} contact />
                 </Reveal>
               </li>
             ))}
@@ -175,25 +177,12 @@ export default async function VehiclePage({ params }: PageProps<"/estoque/[slug]
         </div>
       </section>
 
-      {/* Barra fixa no mobile */}
-      <div className="fixed inset-x-0 bottom-0 z-30 flex items-center justify-between gap-4 border-t border-white/10 bg-carbon/95 px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur-md lg:hidden">
-        <div className="min-w-0">
-          <p className="truncate text-xs text-fog">
-            {vehicleName(v)}
-            {v.source.kind === "demo" && " · demonstrativo"}
-          </p>
-          <p className="spec-value text-lg">{formatPrice(v.price)}</p>
-        </div>
-        <a
-          href={whatsappLink(vehicleWhatsappText(v))}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-primary min-h-12 shrink-0 px-5"
-        >
-          <MessageCircle className="size-4" aria-hidden />
-          WhatsApp
-        </a>
-      </div>
+      {/* Barra fixa no mobile: preço, WhatsApp e atalho para o formulário */}
+      <VehicleMobileBar
+        name={`${vehicleName(v)}${v.source.kind === "demo" ? " · demonstrativo" : ""}`}
+        price={formatPrice(v.price)}
+        whatsappHref={whatsappLink(vehicleWhatsappText(v))}
+      />
       <div className="h-20 lg:hidden" aria-hidden />
     </article>
   );

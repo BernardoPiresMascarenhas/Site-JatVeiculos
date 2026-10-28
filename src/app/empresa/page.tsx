@@ -5,33 +5,45 @@ import Link from "next/link";
 import { Services } from "@/components/home/Services";
 import { PendingPhoto } from "@/components/media/PendingPhoto";
 import { Reveal } from "@/components/ui/Reveal";
-import { companyPillars, site } from "@/config/site";
+import { RevealImage } from "@/components/ui/RevealImage";
+import { site } from "@/config/site";
 import { type ResolvedMedia, resolveMedia } from "@/lib/media";
 import { whatsappLink } from "@/lib/whatsapp";
 
-/** Foto real da loja, ou o local reservado para ela. */
+/** Foto real da loja (preenche o quadro), ou o local reservado para ela. */
 function StorePhoto({ media, title, sizes, className }: { media: ResolvedMedia; title: string; sizes: string; className: string }) {
   if (media.status !== "real") return <PendingPhoto slot={media.slot} title={title} className={className} />;
   return (
-    <div className={`relative overflow-hidden bg-graphite ${className}`}>
+    <RevealImage className={className}>
       <Image src={media.src} alt={media.alt} fill sizes={sizes} className="object-cover" />
-    </div>
+    </RevealImage>
   );
 }
 
-/**
- * Foto abaixo da citação "Consultoria total…". Os stories são verticais e o
- * quadro é 16:9: `position` escolhe a faixa visível da foto.
- * Para trocar, substitua por uma das opções abaixo.
+/** Rótulo numerado de cada capítulo da página. */
+function Chapter({ index, label }: { index: string; label: string }) {
+  return (
+    <p className="eyebrow mb-5 flex items-center gap-3 text-fog">
+      <span className="text-accent">{index}</span>
+      <span aria-hidden className="h-px w-8 bg-current opacity-40" />
+      {label}
+    </p>
+  );
+}
+
+/*
+ * Fotografias reais da loja que não aparecem na home (a home usa os stories
+ * do Instagram e imagens editoriais).
  */
-const quoteImage = {
-  src: "/images/jat/instagram/story-06.jpg",
-  alt: "Frente de um BMW preto no salão da JAT Veículos",
-  position: "50% 66%",
+const selectionImage = {
+  src: "/images/jat/salao-porsche-volante.jpg",
+  alt: "Volante de um Porsche no salão da JAT Veículos, com um conversível ao fundo",
 };
-// Opções testadas:
-// - Anterior (ilustrativa, Unsplash): { src: "/images/editorial/driver.jpg", alt: "Motorista ao volante de um carro dirigindo pela cidade ao entardecer", position: "50% 50%" }
-// - Story 7 (BMWs no salão): { src: "/images/jat/instagram/story-07.jpg", alt: "BMWs pretos no salão da JAT Veículos", position: "50% 38%" }
+const relationshipImage = {
+  // Cópia de public/imagensTeste/Imagem ChatGPT 23_10_2026, 23_26_28.jpg (mesmo lote dos stories da loja).
+  src: "/images/jat/salao-mustang.jpg",
+  alt: "Lateral de um Ford Mustang Mach 1 laranja no salão da JAT Veículos, com o cavalo do logotipo projetado no piso",
+};
 
 export const metadata: Metadata = {
   title: "A JAT",
@@ -72,125 +84,155 @@ export default function EmpresaPage() {
         </div>
       </section>
 
-      {/* Manifesto */}
-      <section className="py-24 md:py-36">
-        <div className="shell grid gap-12 lg:grid-cols-12">
-          <Reveal className="lg:col-span-3">
-            <p className="eyebrow text-fog">História</p>
-          </Reveal>
-          <Reveal delay={0.08} className="lg:col-span-9">
-            <p className="headline text-[clamp(1.7rem,3.6vw,3.2rem)] leading-[1.08]">
-              Fundada em {site.foundedLabel}, a JAT Veículos é referência em novos e seminovos, nacionais e
-              importados <span className="text-fog">de alta qualidade e procedência.</span>
-            </p>
-            <div className="mt-10 max-w-2xl space-y-5 leading-relaxed text-mist">
-              <p>
-                Oferecendo atendimento exclusivo e diferenciado, com uma estrutura moderna e dinâmica, a JAT
-                garante a procedência de todos os seus veículos.
+      {/* 01 · História: só fatos publicados pela JAT (fundação em maio de 1995). */}
+      <section aria-labelledby="historia-title" className="py-24 md:py-36">
+        <div className="shell">
+          <div className="grid gap-10 lg:grid-cols-12">
+            <Reveal className="lg:col-span-5">
+              <Chapter index="01" label="História" />
+              <h2 id="historia-title" className="display text-[clamp(2.4rem,5.6vw,5rem)]">
+                Referência
+                <br />
+                desde <span className="text-accent">1995</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.08} className="flex items-end lg:col-span-6 lg:col-start-7">
+              <p className="headline text-[clamp(1.35rem,2.4vw,2.1rem)] leading-[1.15]">
+                Fundada em {site.foundedLabel}, a JAT Veículos é referência em novos e seminovos, nacionais e
+                importados <span className="text-fog">de alta qualidade e procedência.</span>
               </p>
-              <p>
-                A empresa conta com profissionais altamente qualificados para esclarecer quaisquer dúvidas
-                quanto a características, acessórios, modelos e equipamentos, e está preparada para prestar
-                todos os serviços necessários para compra, venda, consignação e financiamento do seu veículo.
-              </p>
-              <p>
-                Por meio de parcerias com os melhores bancos do mercado, apresenta aos clientes as melhores
-                taxas de financiamento e leasing para automóveis. Com seriedade e competência, está sempre
-                procurando agregar serviços para melhorar a satisfação dos seus clientes.
-              </p>
-              <p>
-                O alto padrão de serviços, o pós-venda e o bom relacionamento justificam o elevado índice de
-                satisfação e confiança dos clientes. Quem escolhe a JAT Veículos não está apenas adquirindo um
-                veículo de qualidade, mas passa a fazer parte de uma família que respeita o cliente.
-              </p>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
+
+          <dl className="mt-16 grid gap-px border-y border-white/10 bg-white/10 sm:grid-cols-3 md:mt-20">
+            {[
+              { label: "Fundação", value: site.foundedLabel },
+              { label: "Veículos", value: "Novos e seminovos, nacionais e importados" },
+              { label: "Endereço", value: `${site.address.street}, ${site.address.district}` },
+            ].map((fact, i) => (
+              <Reveal key={fact.label} delay={i * 0.07} y={16} className="bg-carbon py-6 sm:px-6 sm:first:pl-0 md:py-8">
+                <dt className="eyebrow text-[0.62rem] text-fog">{fact.label}</dt>
+                <dd className="headline mt-3 text-lg leading-snug uppercase md:text-xl">{fact.value}</dd>
+              </Reveal>
+            ))}
+          </dl>
         </div>
       </section>
 
-      {/* A loja: fotografias reais da fachada e do showroom */}
-      <section aria-labelledby="loja-title" className="pb-24 md:pb-36">
-        <div className="shell">
-          <Reveal className="mb-10 flex flex-wrap items-end justify-between gap-6 md:mb-14">
-            <h2 id="loja-title" className="display text-[clamp(2.2rem,5.5vw,4.8rem)]">
-              A loja
-            </h2>
-            <p className="max-w-sm text-sm leading-relaxed text-fog">
-              {site.address.full}. {site.contact.hours}.
-            </p>
-          </Reveal>
-          {/* A fachada é panorâmica: no desktop o showroom acompanha a altura dela. */}
-          <div className="grid gap-5 lg:grid-cols-12">
-            <Reveal className="lg:col-span-8">
-              <StorePhoto media={storefront} title="Fachada" sizes="(min-width: 1024px) 64vw, 100vw" className="aspect-[1158/528]" />
+      {/* 02 · Estrutura: fachada panorâmica + showroom vertical */}
+      <section aria-labelledby="estrutura-title" className="pb-24 md:pb-36">
+        <div className="shell grid gap-5 lg:grid-cols-12 lg:gap-x-8">
+          <div className="lg:col-span-8">
+            <StorePhoto media={storefront} title="Fachada" sizes="(min-width: 1024px) 64vw, 100vw" className="aspect-[1158/528]" />
+            <Reveal className="mt-12 grid gap-8 md:mt-16 md:grid-cols-8">
+              <div className="md:col-span-4">
+                <Chapter index="02" label="Estrutura" />
+                <h2 id="estrutura-title" className="display text-[clamp(2.2rem,3.6vw,3.4rem)]">
+                  <span className="whitespace-nowrap">Moderna e</span>
+                  <br />
+                  dinâmica
+                </h2>
+              </div>
+              <div className="space-y-4 leading-relaxed text-mist md:col-span-4 md:pt-10">
+                <p>Atendimento exclusivo e diferenciado, em uma estrutura moderna e dinâmica.</p>
+                <p className="text-sm text-fog">
+                  {site.address.full}.
+                  <br />
+                  {site.contact.hours}.
+                </p>
+              </div>
             </Reveal>
-            <Reveal delay={0.08} className="lg:col-span-4">
-              <StorePhoto media={showroom} title="Showroom" sizes="(min-width: 1024px) 32vw, 100vw" className="aspect-[4/5] lg:aspect-auto lg:h-full" />
-            </Reveal>
+          </div>
+          <div className="lg:col-span-4">
+            <StorePhoto
+              media={showroom}
+              title="Showroom"
+              sizes="(min-width: 1024px) 30vw, 100vw"
+              className="aspect-[4/5] lg:aspect-auto lg:h-full lg:min-h-[36rem]"
+            />
           </div>
         </div>
       </section>
 
-      {/* Citação + imagens */}
-      <section className="pb-24 md:pb-36">
-        <div className="shell grid gap-5 md:grid-cols-12">
-          <Reveal className="relative aspect-[4/5] overflow-hidden md:col-span-5 md:aspect-auto md:min-h-[38rem]">
-            <Image
-              src="/images/jat/salao-porsche-volante.jpg"
-              alt="Volante de um Porsche no salão da JAT Veículos, com um conversível ao fundo"
-              fill
-              sizes="(min-width: 768px) 40vw, 100vw"
-              className="object-cover"
-            />
-          </Reveal>
-          <div className="flex flex-col gap-5 md:col-span-7">
-            <Reveal delay={0.08} className="flex flex-1 flex-col justify-center bg-ice p-8 text-carbon md:p-14">
+      {/* 03 · Seleção: procedência e consultoria */}
+      <section aria-labelledby="selecao-title" className="border-t border-white/[0.07] py-24 md:py-36">
+        <div className="shell grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-x-8">
+          <div className="lg:col-span-6">
+            <Reveal>
+              <Chapter index="03" label="Seleção" />
+              <h2 id="selecao-title" className="display text-[clamp(2.2rem,4.6vw,4rem)]">
+                Procedência
+                <br />
+                garantida
+              </h2>
+              <p className="mt-8 max-w-md leading-relaxed text-mist">
+                A JAT garante a procedência de todos os seus veículos, nacionais e importados.
+              </p>
+            </Reveal>
+            <Reveal delay={0.08} className="mt-12 border-l-2 border-brand pl-6 md:mt-16 md:pl-8">
               <blockquote>
-                <p className="display text-[clamp(1.7rem,3.4vw,3rem)] leading-[0.95]">
+                <p className="headline text-[clamp(1.4rem,2.4vw,2rem)] leading-[1.15] uppercase">
                   “Consultoria total na escolha de um veículo é o diferencial da nossa empresa.”
                 </p>
-                <footer className="eyebrow mt-8 text-smoke">JAT Veículos · página institucional</footer>
+                <footer className="eyebrow mt-5 text-fog">JAT Veículos · página institucional</footer>
               </blockquote>
-            </Reveal>
-            <Reveal delay={0.14} className="relative aspect-[16/9] overflow-hidden">
-              <Image
-                src={quoteImage.src}
-                alt={quoteImage.alt}
-                fill
-                sizes="(min-width: 768px) 55vw, 100vw"
-                style={{ objectPosition: quoteImage.position }}
-                className="object-cover"
-              />
+              <p className="mt-6 max-w-md text-sm leading-relaxed text-fog">
+                Profissionais altamente qualificados esclarecem quaisquer dúvidas sobre características, acessórios,
+                modelos e equipamentos.
+              </p>
             </Reveal>
           </div>
+          <RevealImage className="aspect-[4/5] lg:col-span-5 lg:col-start-8" delay={0.05}>
+            <Image src={selectionImage.src} alt={selectionImage.alt} fill sizes="(min-width: 1024px) 38vw, 100vw" className="object-cover" />
+          </RevealImage>
         </div>
       </section>
 
-      {/* Posicionamento */}
-      <section aria-labelledby="posicionamento-title" className="border-t border-white/[0.07] py-24 md:py-36">
-        <div className="shell">
-          <Reveal>
-            <p className="eyebrow mb-5 flex items-center gap-3 text-fog">
-              <span aria-hidden className="h-px w-8 bg-brand" />
-              Posicionamento
-            </p>
-            <h2 id="posicionamento-title" className="display text-[clamp(2.4rem,6.2vw,5.5rem)]">
-              O que nos
-              <br />
-              move
-            </h2>
-          </Reveal>
-          <ol className="mt-16 grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
-            {companyPillars.map((p, i) => (
-              <li key={p.title} className="bg-carbon">
-                <Reveal delay={i * 0.07} className="flex h-full flex-col p-7 md:p-9">
-                  <span className="display text-7xl leading-none text-accent">{i + 1}</span>
-                  <p className="headline mt-10 text-xl uppercase">{p.title}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-fog">{p.body}</p>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
+      {/* 04 · Atendimento: pós-venda e relacionamento */}
+      <section aria-labelledby="atendimento-title" className="pb-24 md:pb-36">
+        <div className="shell grid gap-12 lg:grid-cols-12 lg:items-end lg:gap-x-8">
+          <RevealImage className="order-last aspect-[4/5] sm:aspect-[16/10] lg:order-none lg:col-span-5 lg:aspect-[4/5]">
+            <Image
+              src={relationshipImage.src}
+              alt={relationshipImage.alt}
+              fill
+              sizes="(min-width: 1024px) 38vw, 100vw"
+              className="object-cover object-[50%_60%]"
+            />
+          </RevealImage>
+          <div className="lg:col-span-6 lg:col-start-7">
+            <Reveal>
+              <Chapter index="04" label="Atendimento" />
+              <h2 id="atendimento-title" className="display text-[clamp(2.2rem,4.6vw,4rem)]">
+                Além da
+                <br />
+                venda
+              </h2>
+              <p className="mt-8 max-w-lg leading-relaxed text-mist">
+                Quem escolhe a JAT não está apenas adquirindo um veículo de qualidade: passa a fazer parte de uma
+                família que respeita o cliente.
+              </p>
+            </Reveal>
+            <ul className="mt-12 grid gap-px border-y border-white/10 bg-white/10 sm:grid-cols-2">
+              {[
+                {
+                  title: "Pós-venda",
+                  body: "Alto padrão de serviços, pós-venda e bom relacionamento justificam o elevado índice de satisfação e confiança dos clientes.",
+                },
+                {
+                  title: "Evolução",
+                  body: "Com seriedade e competência, a JAT está sempre procurando agregar serviços para melhorar a satisfação dos clientes.",
+                },
+              ].map((item, i) => (
+                <li key={item.title} className="bg-carbon py-6 sm:px-6 sm:first:pl-0 md:py-8">
+                  <Reveal delay={0.06 + i * 0.07} y={16}>
+                    <p className="headline text-lg uppercase">{item.title}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-fog">{item.body}</p>
+                  </Reveal>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 

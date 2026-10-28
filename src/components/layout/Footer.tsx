@@ -8,8 +8,8 @@ export function Footer() {
   return (
     // Sempre escuro: fecha a página como o cabeçalho e preserva o logotipo.
     <footer data-theme="dark" className="relative border-t border-white/[0.07] bg-carbon">
-      <div className="shell grid gap-14 py-16 md:grid-cols-12 md:py-24">
-        <div className="md:col-span-5">
+      <div className="shell grid gap-14 py-16 md:grid-cols-12 md:gap-x-8 md:py-24 lg:gap-x-14">
+        <div className="md:col-span-12 lg:col-span-5">
           <Logo imageClassName="h-14 w-auto" />
           <p className="mt-7 max-w-sm text-sm leading-relaxed text-fog">
             Novos e seminovos, nacionais e importados, desde {site.foundedLabel}. Compra, venda,
@@ -17,7 +17,7 @@ export function Footer() {
           </p>
         </div>
 
-        <nav aria-label="Rodapé" className="md:col-span-2">
+        <nav aria-label="Rodapé" className="md:col-span-3 lg:col-span-2">
           <p className="eyebrow mb-5 text-fog">Navegação</p>
           <ul className="space-y-3 text-sm">
             {navigation.map((item) => (
@@ -30,7 +30,7 @@ export function Footer() {
           </ul>
         </nav>
 
-        <div className="md:col-span-3">
+        <div className="md:col-span-5 lg:col-span-3">
           <p className="eyebrow mb-5 text-fog">Atendimento</p>
           <ul className="space-y-3 text-sm text-mist">
             <li>
@@ -52,7 +52,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="md:col-span-2">
+        <div className="md:col-span-4 lg:col-span-2">
           <p className="eyebrow mb-5 text-fog">Loja</p>
           <a
             href={mapsLink}
@@ -79,9 +79,9 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/[0.07]">
-        <div className="shell flex flex-col gap-4 py-6 text-xs leading-relaxed text-fog md:flex-row md:items-center md:justify-between">
-          <p className="flex items-start gap-2.5 md:items-center">
-            <span className="eyebrow mt-0.5 shrink-0 border border-white/20 px-1.5 py-0.5 text-[0.6rem] text-mist md:mt-0">
+        <div className="shell flex flex-col gap-4 py-6 text-xs leading-relaxed text-fog lg:flex-row lg:items-center lg:justify-between">
+          <p className="flex items-start gap-2.5 lg:items-center">
+            <span className="eyebrow mt-0.5 shrink-0 border border-white/20 px-1.5 py-0.5 text-[0.6rem] text-mist lg:mt-0">
               {site.concept.label}
             </span>
             <span>{site.concept.note}</span>

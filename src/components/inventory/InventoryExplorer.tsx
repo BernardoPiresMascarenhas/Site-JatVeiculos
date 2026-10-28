@@ -203,6 +203,7 @@ export function InventoryExplorer() {
                 >
                   <VehicleCard
                     vehicle={v}
+                    contact
                     priority={i < 3}
                     sizes="(min-width: 1280px) 24vw, (min-width: 640px) 45vw, 100vw"
                   />

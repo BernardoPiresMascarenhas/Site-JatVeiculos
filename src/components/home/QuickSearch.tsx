@@ -4,6 +4,7 @@ import { ArrowRight, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { vehicles } from "@/data/vehicles";
+import { Select } from "@/components/ui/Select";
 import { formatPriceShort } from "@/lib/format";
 import {
   brandOptions,
@@ -50,16 +51,12 @@ export function QuickSearch() {
         <form onSubmit={submit} className="surface grid gap-px bg-steel md:grid-cols-[1fr_1.4fr_1fr_1fr_auto]">
           <label className="flex flex-col gap-1.5 bg-graphite px-5 pt-4 pb-3">
             <span className="eyebrow text-[0.6rem] text-fog">Marca</span>
-            <select
+            <Select
+              variant="bare"
               value={brand}
-              onChange={(e) => setBrand(e.target.value)}
-              className="cursor-pointer appearance-none bg-transparent py-1 text-base text-ice outline-none"
-            >
-              <option value="" className="bg-graphite">Todas</option>
-              {brandOptions.map((b) => (
-                <option key={b} value={b} className="bg-graphite">{b}</option>
-              ))}
-            </select>
+              onChange={setBrand}
+              options={[{ value: "", label: "Todas" }, ...brandOptions.map((b) => ({ value: b, label: b }))]}
+            />
           </label>
           <label className="flex flex-col gap-1.5 bg-graphite px-5 pt-4 pb-3">
             <span className="eyebrow text-[0.6rem] text-fog">Modelo</span>
@@ -76,29 +73,24 @@ export function QuickSearch() {
           </label>
           <label className="flex flex-col gap-1.5 bg-graphite px-5 pt-4 pb-3">
             <span className="eyebrow text-[0.6rem] text-fog">Preço até</span>
-            <select
-              value={priceMax ?? ""}
-              onChange={(e) => setPriceMax(e.target.value ? Number(e.target.value) : null)}
-              className="cursor-pointer appearance-none bg-transparent py-1 text-base text-ice outline-none"
-            >
-              <option value="" className="bg-graphite">Qualquer valor</option>
-              {priceOptions.map((p) => (
-                <option key={p} value={p} className="bg-graphite">{formatPriceShort(p)}</option>
-              ))}
-            </select>
+            <Select
+              variant="bare"
+              value={priceMax === null ? "" : String(priceMax)}
+              onChange={(v) => setPriceMax(v ? Number(v) : null)}
+              options={[
+                { value: "", label: "Qualquer valor" },
+                ...priceOptions.map((p) => ({ value: String(p), label: formatPriceShort(p) })),
+              ]}
+            />
           </label>
           <label className="flex flex-col gap-1.5 bg-graphite px-5 pt-4 pb-3">
             <span className="eyebrow text-[0.6rem] text-fog">Ano a partir de</span>
-            <select
-              value={yearMin ?? ""}
-              onChange={(e) => setYearMin(e.target.value ? Number(e.target.value) : null)}
-              className="cursor-pointer appearance-none bg-transparent py-1 text-base text-ice outline-none"
-            >
-              <option value="" className="bg-graphite">Qualquer ano</option>
-              {yearOptions.map((y) => (
-                <option key={y} value={y} className="bg-graphite">{y}</option>
-              ))}
-            </select>
+            <Select
+              variant="bare"
+              value={yearMin === null ? "" : String(yearMin)}
+              onChange={(v) => setYearMin(v ? Number(v) : null)}
+              options={[{ value: "", label: "Qualquer ano" }, ...yearOptions.map((y) => ({ value: String(y), label: String(y) }))]}
+            />
           </label>
           <button
             type="submit"

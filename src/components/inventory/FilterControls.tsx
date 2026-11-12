@@ -2,6 +2,7 @@
 
 import { RotateCcw } from "lucide-react";
 import { vehicles } from "@/data/vehicles";
+import { Select } from "@/components/ui/Select";
 import { formatPriceShort } from "@/lib/format";
 import {
   type InventoryFilters,
@@ -103,71 +104,47 @@ export function FilterControls({ filters, onChange, onReset }: FilterControlsPro
 
       <Group title="Ano do modelo">
         <div className="grid grid-cols-2 gap-2">
-          <label>
-            <span className="sr-only">Ano mínimo</span>
-            <select
-              className="field"
-              value={filters.yearMin ?? ""}
-              onChange={(e) => onChange({ yearMin: numberOrNull(e.target.value) })}
-            >
-              <option value="">De</option>
-              {yearOptions.map((y) => (
-                <option key={y} value={y} disabled={filters.yearMax !== null && y > filters.yearMax}>
-                  {y}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            <span className="sr-only">Ano máximo</span>
-            <select
-              className="field"
-              value={filters.yearMax ?? ""}
-              onChange={(e) => onChange({ yearMax: numberOrNull(e.target.value) })}
-            >
-              <option value="">Até</option>
-              {yearOptions.map((y) => (
-                <option key={y} value={y} disabled={filters.yearMin !== null && y < filters.yearMin}>
-                  {y}
-                </option>
-              ))}
-            </select>
-          </label>
+          <Select
+            aria-label="Ano mínimo"
+            value={filters.yearMin === null ? "" : String(filters.yearMin)}
+            onChange={(v) => onChange({ yearMin: numberOrNull(v) })}
+            options={[
+              { value: "", label: "De" },
+              ...yearOptions.map((x) => ({ value: String(x), label: String(x), disabled: filters.yearMax !== null && x > filters.yearMax })),
+            ]}
+          />
+          <Select
+            aria-label="Ano máximo"
+            value={filters.yearMax === null ? "" : String(filters.yearMax)}
+            onChange={(v) => onChange({ yearMax: numberOrNull(v) })}
+            options={[
+              { value: "", label: "Até" },
+              ...yearOptions.map((x) => ({ value: String(x), label: String(x), disabled: filters.yearMin !== null && x < filters.yearMin })),
+            ]}
+          />
         </div>
       </Group>
 
       <Group title="Preço">
         <div className="grid grid-cols-2 gap-2">
-          <label>
-            <span className="sr-only">Preço mínimo</span>
-            <select
-              className="field"
-              value={filters.priceMin ?? ""}
-              onChange={(e) => onChange({ priceMin: numberOrNull(e.target.value) })}
-            >
-              <option value="">Mínimo</option>
-              {priceOptions.map((p) => (
-                <option key={p} value={p} disabled={filters.priceMax !== null && p >= filters.priceMax}>
-                  {formatPriceShort(p)}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            <span className="sr-only">Preço máximo</span>
-            <select
-              className="field"
-              value={filters.priceMax ?? ""}
-              onChange={(e) => onChange({ priceMax: numberOrNull(e.target.value) })}
-            >
-              <option value="">Máximo</option>
-              {priceOptions.map((p) => (
-                <option key={p} value={p} disabled={filters.priceMin !== null && p <= filters.priceMin}>
-                  {formatPriceShort(p)}
-                </option>
-              ))}
-            </select>
-          </label>
+          <Select
+            aria-label="Preço mínimo"
+            value={filters.priceMin === null ? "" : String(filters.priceMin)}
+            onChange={(v) => onChange({ priceMin: numberOrNull(v) })}
+            options={[
+              { value: "", label: "Mínimo" },
+              ...priceOptions.map((x) => ({ value: String(x), label: formatPriceShort(x), disabled: filters.priceMax !== null && x >= filters.priceMax })),
+            ]}
+          />
+          <Select
+            aria-label="Preço máximo"
+            value={filters.priceMax === null ? "" : String(filters.priceMax)}
+            onChange={(v) => onChange({ priceMax: numberOrNull(v) })}
+            options={[
+              { value: "", label: "Máximo" },
+              ...priceOptions.map((x) => ({ value: String(x), label: formatPriceShort(x), disabled: filters.priceMin !== null && x <= filters.priceMin })),
+            ]}
+          />
         </div>
       </Group>
 

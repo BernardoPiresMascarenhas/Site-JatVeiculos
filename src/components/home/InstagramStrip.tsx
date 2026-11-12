@@ -4,7 +4,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { instagramStories } from "@/config/media";
 import { site } from "@/config/site";
 
-const handle = "@jatveiculos_premium";
+const handle = "@jatveiculos";
 
 /** Bastidores da loja em formato de story, com link para o perfil oficial. */
 export function InstagramStrip() {

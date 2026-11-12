@@ -45,8 +45,7 @@ export const site = {
   },
 
   social: {
-    instagram: "https://www.instagram.com/jatveiculos_premium/",
-    facebook: "https://www.facebook.com/JAT-VEICULOS-220916614608878/",
+    instagram: "https://www.instagram.com/jatveiculos/",
   },
 
   officialSite: "https://jatveiculos.com.br/",

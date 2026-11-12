@@ -138,6 +138,25 @@
     overflow-x: clip;
   }
 
+  /* Barra de rolagem: trilho na cor do fundo, polegar amarelo da marca, cantos retos. */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-carbon);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-brand);
+    border: 2px solid var(--color-carbon);
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-brand-deep);
+  }
+  ::-webkit-scrollbar-corner {
+    background: var(--color-carbon);
+  }
   ::selection {
     background: var(--color-brand);
     color: var(--color-on-brand);

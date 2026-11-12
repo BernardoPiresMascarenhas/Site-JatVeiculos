@@ -76,9 +76,6 @@ export default function ContatoPage() {
             <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="link-line text-mist hover:text-ice">
               Instagram
             </a>
-            <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" className="link-line text-mist hover:text-ice">
-              Facebook
-            </a>
           </div>
         </Reveal>
 

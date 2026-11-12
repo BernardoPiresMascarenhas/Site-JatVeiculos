@@ -49,6 +49,7 @@ export function Hero({ image, caption }: HeroProps) {
   return (
     <section
       ref={ref}
+      id="hero"
       aria-labelledby="hero-title"
       // Cinematográfico: escuro nos dois temas.
       data-theme="dark"
@@ -69,7 +70,7 @@ export function Hero({ image, caption }: HeroProps) {
               fill
               preload
               sizes="(min-width: 1280px) 76vw, 100vw"
-              className="object-cover object-[54%_60%] [filter:contrast(1.06)_saturate(0.92)_brightness(0.92)] xl:object-[74%_58%]"
+              className="object-cover object-[90%_60%] xl:object-[92%_60%]"
             />
           </motion.div>
         </motion.div>

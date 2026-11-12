@@ -4,6 +4,7 @@ import { MessageCircle, Search, SlidersHorizontal, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Select } from "@/components/ui/Select";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
 import { vehicles } from "@/data/vehicles";
 import { formatPriceShort } from "@/lib/format";
@@ -88,7 +89,7 @@ export function InventoryExplorer() {
     <div className="shell grid gap-10 pb-28 lg:grid-cols-12 lg:gap-12">
       {/* Filtros — desktop */}
       <aside aria-label="Filtros" className="hidden lg:col-span-3 lg:block">
-        <div className="sticky top-[calc(6rem+env(safe-area-inset-top))] max-h-[calc(100dvh-7rem-env(safe-area-inset-top))] overflow-y-auto pr-3 pb-6 [scrollbar-color:var(--color-smoke)_transparent] [scrollbar-width:thin]">
+        <div className="sticky top-[calc(6rem+env(safe-area-inset-top))] max-h-[calc(100dvh-7rem-env(safe-area-inset-top))] overflow-y-auto pr-3 pb-6 [scrollbar-color:var(--color-brand)_transparent] [scrollbar-width:thin]">
           <FilterControls filters={filters} onChange={update} onReset={reset} />
         </div>
       </aside>
@@ -118,20 +119,15 @@ export function InventoryExplorer() {
               Filtros
               {count > 0 && <span className="grid size-5 place-items-center bg-brand font-mono text-[0.65rem] text-on-brand">{count}</span>}
             </button>
-            <label className="flex-1 md:w-52 md:flex-none">
-              <span className="sr-only">Ordenar por</span>
-              <select
-                className="field min-h-13"
+            <div className="flex-1 md:w-52 md:flex-none">
+              <Select
+                aria-label="Ordenar por"
+                className="min-h-13"
                 value={filters.sort}
-                onChange={(e) => update({ sort: e.target.value as InventoryFilters["sort"] })}
-              >
-                {sortOptions.map((o) => (
-                  <option key={o.value} value={o.value}>
-                    {o.label}
-                  </option>
-                ))}
-              </select>
-            </label>
+                onChange={(v) => update({ sort: v as InventoryFilters["sort"] })}
+                options={sortOptions.map((o) => ({ value: o.value, label: o.label }))}
+              />
+            </div>
           </div>
         </div>
 

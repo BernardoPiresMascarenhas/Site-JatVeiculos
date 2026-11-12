@@ -59,10 +59,14 @@ export default function EmpresaPage() {
 
   return (
     <>
-      {/* Abertura (escura nos dois temas) */}
-      <section data-theme="dark" className="relative isolate flex min-h-[88svh] items-end overflow-hidden pt-36 pb-16 md:pb-24">
+      {/*
+        Abertura (escura nos dois temas). Ocupa a tela inteira: o cabeçalho é fixo e fica sobre ela,
+        e o <main> só desloca o conteúdo pela safe area do iOS. Com 88svh, os 12% de baixo mostravam
+        o início da próxima seção, que no tema claro é clara.
+      */}
+      <section data-theme="dark" className="relative isolate flex min-h-[calc(100svh-env(safe-area-inset-top))] items-end overflow-hidden bg-carbon pt-36 pb-16 md:pb-24">
         {opening && (
-          <Image src={opening.src} alt={opening.alt} fill preload sizes="100vw" className="-z-10 object-cover object-[50%_45%]" />
+          <Image src={opening.src} alt={opening.alt} fill preload sizes="100vw" className="-z-10 object-cover object-[55%_50%]" />
         )}
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-carbon via-carbon/60 to-carbon/30" />
         {facade.status === "fallback" && (

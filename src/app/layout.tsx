@@ -61,6 +61,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        {/* Barra de rolagem amarela no Firefox. Fica fora do globals.css porque o compilador
+            de CSS do Next descarta este @supports. No Chrome/Safari valem os ::-webkit-scrollbar. */}
+        <style>{`@supports not selector(::-webkit-scrollbar){html{scrollbar-color:var(--color-brand) var(--color-carbon)}}`}</style>
       </head>
       <body className="grain min-h-dvh">
         <a

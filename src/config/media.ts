@@ -21,8 +21,8 @@ export interface MediaSlot {
 
 export const mediaSlots = {
   hero: {
-    file: "/images/jat/hero.jpg",
-    alt: "Veículo do estoque da JAT Veículos",
+    file: "/images/porscheHero2.png",
+    alt: "Porsche 911 GT3 preto com aerofólio, visto de trás em estúdio escuro, com a lanterna vermelha refletida no piso",
     usage: "Hero da página inicial: um veículo real do estoque da JAT, em ambiente escuro ou ao entardecer.",
     specs: "JPG horizontal, mínimo 2400 × 1600 px, carro à direita do quadro",
     fallback: {
@@ -32,8 +32,8 @@ export const mediaSlots = {
     },
   },
   facade: {
-    file: "/images/jat/fachada.jpg",
-    alt: "Fachada da JAT Veículos na Av. Raja Gabáglia, 4855",
+    file: "/images/porscheJat.jpg",
+    alt: "Porsche 911 clássico preto em estúdio enfumaçado, com a lanterna traseira acesa e luz rosa refletida no piso",
     usage: "Página A JAT: abertura em tela cheia.",
     specs: "JPG horizontal, mínimo 2400 × 1600 px",
     fallback: {
@@ -60,7 +60,7 @@ export const mediaSlots = {
 export type MediaSlotId = keyof typeof mediaSlots;
 
 /**
- * Bastidores do Instagram (@jatveiculos_premium): capturas de stories da própria loja.
+ * Bastidores do Instagram (@jatveiculos): capturas de stories da própria loja.
  * Verticais (~1206 × 2100 px). Para mais qualidade, substitua pelos originais
  * com o mesmo nome de arquivo.
  */

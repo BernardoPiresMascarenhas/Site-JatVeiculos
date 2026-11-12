@@ -3,6 +3,7 @@
 import { ArrowLeft, ArrowRight, Check, Eraser, Lock, MessageCircle, Pencil, Sparkles } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useId, useRef, useState } from "react";
+import { Select } from "@/components/ui/Select";
 import { creditApplicationGateway } from "@/features/credit-application/gateway";
 import { type FieldDef, type FormValues, fictitiousValues, steps } from "@/features/credit-application/schema";
 import { applyMask, formatForReview, validateStep, visibleFields } from "@/features/credit-application/validation";
@@ -45,14 +46,17 @@ function Field({
         {field.sensitive && <Lock className="size-3 text-accent/80" aria-label="dado sensível" />}
       </label>
       {field.type === "select" ? (
-        <select {...common} value={value} onChange={(e) => onChange(field.id, e.target.value)}>
-          <option value="">Selecione</option>
-          {field.options?.map((o) => (
-            <option key={o.value} value={o.value}>
-              {o.label}
-            </option>
-          ))}
-        </select>
+        <Select
+          id={id}
+          name={field.id}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={describedBy}
+          aria-required={field.required || undefined}
+          className={error ? "border-danger" : ""}
+          value={value}
+          onChange={(v) => onChange(field.id, v)}
+          options={[{ value: "", label: "Selecione" }, ...(field.options ?? [])]}
+        />
       ) : (
         <input
           {...common}

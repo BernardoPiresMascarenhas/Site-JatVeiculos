@@ -27,7 +27,7 @@ const jsonLd = {
     addressCountry: "BR",
   },
   openingHours: "Mo-Sa 08:00-18:00",
-  sameAs: [site.social.instagram, site.social.facebook],
+  sameAs: [site.social.instagram],
 };
 
 export default function HomePage() {
@@ -37,7 +37,7 @@ export default function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      {heroImage && <Hero image={heroImage} caption={hero.status === "fallback" ? hero.caption : "Estoque JAT Veículos"} />}
+      {heroImage && <Hero image={heroImage} />}
       <QuickSearch />
       <BrandShowcase />
       <FeaturedVehicles />
